@@ -38,12 +38,43 @@ class Solution {
 // }
         
 //         return -1;
+     
+     
+     
+     // Approach 1
         
-        for(int i=0;i<nums.length;i++){
+ /**       for(int i=0;i<nums.length;i++){
             if(nums[i]>= target) // simply checking the target value bcs given that nums values sorted in ascending order
                 return i;
 }
-        return nums.length;
+        return nums.length;  
+        
+        
+        
+        **/
+     
+     
+     
+     
+     
+     
+        // Approach 2 ----> using the binary search
+        // O(logn)
+        
+        
+        int first=0;
+        int last=nums.length-1;
+        while(last >= first){
+            int mid = first + (last - first )/2;   // for avoiding the condn array index out of bound for the large array size
+            if(nums[mid] == target)
+                return mid;
+            else if(nums[mid] > target)
+                last = mid -1;
+            else
+                first = mid +1;
+        }
+        
+        return first;
         
     }
     
