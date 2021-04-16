@@ -17,11 +17,31 @@
 
 class Solution {
     public String interpret(String command) {
-    
         
-        // using RegEx 
-        return command.replaceAll("\\(\\)","o").replaceAll("\\(al\\)","al");
+  //      return command.replaceAll("\\(\\)","o").replaceAll("\\(al\\)","al");
         
-
+        StringBuilder output = new StringBuilder();
+        char currentValue;
+        
+        for(int i=0;i<command.length();i++){
+            currentValue = command.charAt(i);
+            
+            if(currentValue == 'G'){
+                output.append(currentValue);
+                
+            }
+            if(currentValue == ')'){
+                if(command.charAt(i-1) == '('){
+                    output.append('o');
+}else{
+                    output.append("al");
+                }
+                
+                
+            }
+          
+            
+        }
+          return output.toString();
     }
 }
